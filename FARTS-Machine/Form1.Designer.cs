@@ -41,6 +41,11 @@
             this.textBoxCurrentEffect = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxDuration = new System.Windows.Forms.TextBox();
+            this.checkBoxSuperJump = new System.Windows.Forms.CheckBox();
+            this.checkBoxNoDamage = new System.Windows.Forms.CheckBox();
+            this.checkBoxInfiniteAmmo = new System.Windows.Forms.CheckBox();
+            this.labelHelpers = new System.Windows.Forms.Label();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_Attach
@@ -134,8 +139,69 @@
             // 
             this.textBoxDuration.Location = new System.Drawing.Point(703, 454);
             this.textBoxDuration.Name = "textBoxDuration";
-            this.textBoxDuration.Size = new System.Drawing.Size(116, 20);
+            this.textBoxDuration.Size = new System.Drawing.Size(47, 20);
             this.textBoxDuration.TabIndex = 9;
+            // 
+            // checkBoxSuperJump
+            // 
+            this.checkBoxSuperJump.AutoSize = true;
+            this.checkBoxSuperJump.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBoxSuperJump.Location = new System.Drawing.Point(12, 316);
+            this.checkBoxSuperJump.Name = "checkBoxSuperJump";
+            this.checkBoxSuperJump.Size = new System.Drawing.Size(82, 17);
+            this.checkBoxSuperJump.TabIndex = 10;
+            this.checkBoxSuperJump.Text = "Super Jump";
+            this.checkBoxSuperJump.UseVisualStyleBackColor = true;
+            this.checkBoxSuperJump.Visible = false;
+            this.checkBoxSuperJump.CheckedChanged += new System.EventHandler(this.checkBoxSuperJump_CheckedChanged);
+            // 
+            // checkBoxNoDamage
+            // 
+            this.checkBoxNoDamage.AutoSize = true;
+            this.checkBoxNoDamage.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBoxNoDamage.Location = new System.Drawing.Point(12, 339);
+            this.checkBoxNoDamage.Name = "checkBoxNoDamage";
+            this.checkBoxNoDamage.Size = new System.Drawing.Size(77, 17);
+            this.checkBoxNoDamage.TabIndex = 11;
+            this.checkBoxNoDamage.Text = "Invincibility";
+            this.checkBoxNoDamage.UseVisualStyleBackColor = true;
+            this.checkBoxNoDamage.Visible = false;
+            this.checkBoxNoDamage.CheckedChanged += new System.EventHandler(this.checkBoxNoDamage_CheckedChanged);
+            // 
+            // checkBoxInfiniteAmmo
+            // 
+            this.checkBoxInfiniteAmmo.AutoSize = true;
+            this.checkBoxInfiniteAmmo.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBoxInfiniteAmmo.Location = new System.Drawing.Point(12, 362);
+            this.checkBoxInfiniteAmmo.Name = "checkBoxInfiniteAmmo";
+            this.checkBoxInfiniteAmmo.Size = new System.Drawing.Size(89, 17);
+            this.checkBoxInfiniteAmmo.TabIndex = 12;
+            this.checkBoxInfiniteAmmo.Text = "Infinite Ammo";
+            this.checkBoxInfiniteAmmo.UseVisualStyleBackColor = true;
+            this.checkBoxInfiniteAmmo.Visible = false;
+            this.checkBoxInfiniteAmmo.CheckedChanged += new System.EventHandler(this.checkBoxInfiniteAmmo_CheckedChanged);
+            // 
+            // labelHelpers
+            // 
+            this.labelHelpers.AutoSize = true;
+            this.labelHelpers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHelpers.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelHelpers.Location = new System.Drawing.Point(8, 280);
+            this.labelHelpers.Name = "labelHelpers";
+            this.labelHelpers.Size = new System.Drawing.Size(178, 24);
+            this.labelHelpers.TabIndex = 13;
+            this.labelHelpers.Text = "Strat-Finder Helpers";
+            this.labelHelpers.Visible = false;
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Location = new System.Drawing.Point(832, 12);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(143, 34);
+            this.buttonClose.TabIndex = 14;
+            this.buttonClose.Text = "Close";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // Form1
             // 
@@ -144,7 +210,13 @@
             this.BackColor = System.Drawing.SystemColors.InfoText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(965, 499);
+            this.ClientSize = new System.Drawing.Size(987, 499);
+            this.ControlBox = false;
+            this.Controls.Add(this.buttonClose);
+            this.Controls.Add(this.labelHelpers);
+            this.Controls.Add(this.checkBoxInfiniteAmmo);
+            this.Controls.Add(this.checkBoxNoDamage);
+            this.Controls.Add(this.checkBoxSuperJump);
             this.Controls.Add(this.textBoxDuration);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxCurrentEffect);
@@ -155,6 +227,7 @@
             this.Controls.Add(this.textBox_Status);
             this.Controls.Add(this.button_Attach);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -177,6 +250,11 @@
         private System.Windows.Forms.TextBox textBoxCurrentEffect;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxDuration;
+        private System.Windows.Forms.CheckBox checkBoxSuperJump;
+        private System.Windows.Forms.CheckBox checkBoxNoDamage;
+        private System.Windows.Forms.CheckBox checkBoxInfiniteAmmo;
+        private System.Windows.Forms.Label labelHelpers;
+        private System.Windows.Forms.Button buttonClose;
     }
 }
 

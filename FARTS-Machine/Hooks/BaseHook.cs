@@ -55,7 +55,7 @@ namespace FARTS_Machine.Hooks
             }
         }
 
-        public void StartRandomizer()
+        public void Setup()
         {
             var directory = Directory.GetCurrentDirectory();
             this._randomizer = new Random();
@@ -74,12 +74,25 @@ namespace FARTS_Machine.Hooks
         public void RandomizeNextOption()
         {
             this._nextOptions.Add(this._availableOptions[this._randomizer.Next(this._availableOptions.Count)]);
-            this.ExecuteOption(this._nextOptions[0].OptionId);
+            this.ExecuteOption();
         }
 
-        public void ExecuteOption(int optionId)
+        public void SetManualOption(FARTSOptionBase option)
         {
-            this._activeOption = new FARTSOptionBase();
+            if (this._nextOptions == null)
+            {
+                this._nextOptions = new List<FARTSOptionBase>();
+            }
+            this._nextOptions.Add(option);
+            this.ExecuteOption();
+        }
+
+        public void ExecuteOption()
+        {
+            if (this._activeOption == null)
+            {
+                this._activeOption = new FARTSOptionBase();
+            }
             this._activeOption = this._nextOptions[0];
 
             switch (this._activeOption.OptionId)

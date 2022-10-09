@@ -1,12 +1,8 @@
-﻿using FARTS_Machine.Hooks;
+﻿using FARTS_Machine.FARTSOptions;
+using FARTS_Machine.Hooks;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace FARTS_Machine
@@ -15,15 +11,19 @@ namespace FARTS_Machine
     {
         private BaseHook _baseHook;
         int _warmupCounterCount;
-        bool _randomizerActive = false;
         int _randomizerCounterCount;
-        int _activeOptionCounterCount;
         int _currentOptionDuration;
         int _currentOptionCountdown;
         public Form1()
         {
             InitializeComponent();
             this._baseHook = new BaseHook();
+            if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+            {
+                this.button_Attach.Enabled = false;
+                this.textBox_Status.ForeColor = Color.Red;
+                this.textBox_Status.Text = "Please restart as administrator!";
+            }
         }
 
         private void button_Attach_Click(object sender, EventArgs e)
@@ -36,6 +36,11 @@ namespace FARTS_Machine
                 this.button_Randomizer.Enabled = true;
                 this.button_Attach.Enabled = false;
                 this.button_Randomizer.Focus();
+                this.checkBoxInfiniteAmmo.Visible = true;
+                this.checkBoxNoDamage.Visible = true;
+                this.checkBoxSuperJump.Visible = true;
+                this.labelHelpers.Visible = true;
+                this._baseHook.Setup();
             }
             else
             {
@@ -49,9 +54,11 @@ namespace FARTS_Machine
         {
             this.button_Randomizer.Enabled = false;
             this.buttonStopRandomizer.Enabled = true;
-            this._randomizerActive = true;
+            this.checkBoxInfiniteAmmo.Visible = false;
+            this.checkBoxNoDamage.Visible = false;
+            this.checkBoxSuperJump.Visible = false;
+            this.labelHelpers.Visible = false;
             this.textBox_Status.Text = "Randomizer started.";
-            this._baseHook.StartRandomizer();
             this.timerWarmup.Start();
         }
 
@@ -59,7 +66,10 @@ namespace FARTS_Machine
         {
             this.button_Randomizer.Enabled = true;
             this.buttonStopRandomizer.Enabled = false;
-            this._randomizerActive = false;
+            this.checkBoxInfiniteAmmo.Visible = true;
+            this.checkBoxNoDamage.Visible = true;
+            this.checkBoxSuperJump.Visible = true;
+            this.labelHelpers.Visible = true;
             this._baseHook.ResetActiveOption();
             this._randomizerCounterCount = 0;
             this.timerRandomizer.Stop();
@@ -111,6 +121,49 @@ namespace FARTS_Machine
                 this.timerWarmup.Start();
             }
 
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this._baseHook.ResetActiveOption();
+            Application.Exit();
+        }
+
+        private void checkBoxSuperJump_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxSuperJump.Checked)
+            {
+                this._baseHook.SetManualOption(new FARTSOptionBase { Name = "Super Jump", OptionId = (int)InternalOptionIds.SuperJump, DurationInSeconds = 40 });
+            }
+            else
+            {
+                this._baseHook.ResetActiveOption();
+            }
+            
+        }
+
+        private void checkBoxNoDamage_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxNoDamage.Checked)
+            {
+                this._baseHook.SetManualOption(new FARTSOptionBase { Name = "Invincible Stranger", OptionId = (int)InternalOptionIds.Invincible, DurationInSeconds = 40 });
+            }
+            else
+            {
+                this._baseHook.ResetActiveOption();
+            }
+        }
+
+        private void checkBoxInfiniteAmmo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxInfiniteAmmo.Checked)
+            {
+                this._baseHook.SetManualOption(new FARTSOptionBase { Name = "Infinite Ammo", OptionId = (int)InternalOptionIds.InfiniteAmmo, DurationInSeconds = 20 });
+            }
+            else
+            {
+                this._baseHook.ResetActiveOption();
+            }
         }
     }
 }
