@@ -84,5 +84,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sounds\damage.wav" />
+    <Content Include="Sounds\effect.wav" />
+    <Content Include="Sounds\effectEnded.wav" />
+    <Content Include="Sounds\heal.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
