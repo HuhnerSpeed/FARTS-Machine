@@ -27,14 +27,19 @@ namespace FARTS_Machine
             {
                 this.textBox_Status.ForeColor = Color.Green;
                 this.textBox_Status.Text = "Successfully attached to Stranger's Wrath.";
-                this.button_Attach.Text = "Detach from Game";
+                this.button_Randomizer.Enabled = true;
             }
             else
             {
                 this.textBox_Status.ForeColor = Color.Red;
-                this.textBox_Status.Text = "Could not attach. Please try again.";
+                this.textBox_Status.Text = "Could not attach. Please try again. Make sure Stranger is running.";
             }
             
+        }
+
+        private void button_Randomizer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

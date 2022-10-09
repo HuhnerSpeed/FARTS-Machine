@@ -32,6 +32,7 @@
             this.button_Attach = new System.Windows.Forms.Button();
             this.textBox_Status = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button_Randomizer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_Attach
@@ -46,9 +47,9 @@
             // 
             // textBox_Status
             // 
-            this.textBox_Status.Location = new System.Drawing.Point(339, 12);
+            this.textBox_Status.Location = new System.Drawing.Point(289, 12);
             this.textBox_Status.Name = "textBox_Status";
-            this.textBox_Status.Size = new System.Drawing.Size(287, 20);
+            this.textBox_Status.Size = new System.Drawing.Size(387, 20);
             this.textBox_Status.TabIndex = 1;
             // 
             // label1
@@ -62,6 +63,17 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Created by HuhnerSpeed";
             // 
+            // button_Randomizer
+            // 
+            this.button_Randomizer.Enabled = false;
+            this.button_Randomizer.Location = new System.Drawing.Point(12, 126);
+            this.button_Randomizer.Name = "button_Randomizer";
+            this.button_Randomizer.Size = new System.Drawing.Size(143, 34);
+            this.button_Randomizer.TabIndex = 4;
+            this.button_Randomizer.Text = "Start Randomizer";
+            this.button_Randomizer.UseVisualStyleBackColor = true;
+            this.button_Randomizer.Click += new System.EventHandler(this.button_Randomizer_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -70,6 +82,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(965, 499);
+            this.Controls.Add(this.button_Randomizer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_Status);
             this.Controls.Add(this.button_Attach);
@@ -88,6 +101,7 @@
         private System.Windows.Forms.Button button_Attach;
         private System.Windows.Forms.TextBox textBox_Status;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button_Randomizer;
     }
 }
 
