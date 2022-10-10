@@ -1,7 +1,9 @@
 ﻿using FARTS_Machine.FARTSOptions;
 using FARTS_Machine.Hooks;
+using Gma.System.MouseKeyHook;
 using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Security.Principal;
 using System.Windows.Forms;
 
@@ -10,6 +12,8 @@ namespace FARTS_Machine
     public partial class Form1 : Form
     {
         private BaseHook _baseHook;
+        private IKeyboardMouseEvents _keyboardHook;
+        bool _randomizerRunning = false;
         int _warmupCounterCount;
         int _randomizerCounterCount;
         int _currentOptionDuration;
@@ -17,7 +21,6 @@ namespace FARTS_Machine
         public Form1()
         {
             InitializeComponent();
-            this._baseHook = new BaseHook();
             if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
             {
                 this.button_Attach.Enabled = false;
@@ -26,31 +29,22 @@ namespace FARTS_Machine
             }
         }
 
-        private void button_Attach_Click(object sender, EventArgs e)
+        private void GlobalHookKeyPress(object sender, KeyPressEventArgs e)
         {
-            this._baseHook.AttachToProcess();
-            if (this._baseHook.IsAttached)
+            if (e.KeyChar == '0')
             {
-                this.textBox_Status.ForeColor = Color.Green;
-                this.textBox_Status.Text = "Successfully attached to Stranger's Wrath.";
-                this.button_Randomizer.Enabled = true;
-                this.button_Attach.Enabled = false;
-                this.button_Randomizer.Focus();
-                this.checkBoxInfiniteAmmo.Visible = true;
-                this.checkBoxNoDamage.Visible = true;
-                this.checkBoxSuperJump.Visible = true;
-                this.labelHelpers.Visible = true;
-                this._baseHook.Setup();
+                if (this._randomizerRunning)
+                {
+                    this.StopRandomizer();
+                }
+                else
+                {
+                    this.StartRandomizer();
+                }
             }
-            else
-            {
-                this.textBox_Status.ForeColor = Color.Red;
-                this.textBox_Status.Text = "Could not attach. Please try again. Make sure Stranger is running.";
-            }
-            
         }
 
-        private void button_Randomizer_Click(object sender, EventArgs e)
+        private void StartRandomizer()
         {
             this.button_Randomizer.Enabled = false;
             this.buttonStopRandomizer.Enabled = true;
@@ -58,11 +52,12 @@ namespace FARTS_Machine
             this.checkBoxNoDamage.Visible = false;
             this.checkBoxSuperJump.Visible = false;
             this.labelHelpers.Visible = false;
+            this._randomizerRunning = true;
             this.textBox_Status.Text = "Randomizer started.";
             this.timerWarmup.Start();
         }
 
-        private void buttonStopRandomizer_Click(object sender, EventArgs e)
+        private void StopRandomizer()
         {
             this.button_Randomizer.Enabled = true;
             this.buttonStopRandomizer.Enabled = false;
@@ -77,7 +72,45 @@ namespace FARTS_Machine
             this.textBoxCurrentEffect.Text = "";
             this._warmupCounterCount = 0;
             this.timerWarmup.Stop();
+            this._randomizerRunning = false;
             this.textBox_Status.Text = "Randomizer stopped.";
+        }
+
+        private void button_Attach_Click(object sender, EventArgs e)
+        {
+            this._baseHook = new BaseHook();
+            this._baseHook.AttachToProcess();
+            if (this._baseHook.IsAttached)
+            {
+                this.textBox_Status.ForeColor = Color.Green;
+                this.textBox_Status.Text = "Successfully attached to Stranger's Wrath.";
+                this.button_Randomizer.Enabled = true;
+                this.button_Attach.Enabled = false;
+                this.button_Randomizer.Focus();
+                this.checkBoxInfiniteAmmo.Visible = true;
+                this.checkBoxNoDamage.Visible = true;
+                this.checkBoxSuperJump.Visible = true;
+                this.labelHelpers.Visible = true;
+                this._baseHook.Setup();
+                this._keyboardHook = Hook.GlobalEvents();
+                this._keyboardHook.KeyPress += GlobalHookKeyPress;
+            }
+            else
+            {
+                this.textBox_Status.ForeColor = Color.Red;
+                this.textBox_Status.Text = "Could not attach. Please try again. Make sure Stranger is running.";
+            }
+            
+        }
+
+        private void button_Randomizer_Click(object sender, EventArgs e)
+        {
+            this.StartRandomizer();
+        }
+
+        private void buttonStopRandomizer_Click(object sender, EventArgs e)
+        {
+            this.StopRandomizer();
         }
 
         private void timerWarmup_Tick(object sender, EventArgs e)
@@ -120,12 +153,12 @@ namespace FARTS_Machine
                 this._warmupCounterCount = 0;
                 this.timerWarmup.Start();
             }
-
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this._baseHook.ResetActiveOption();
+            this._keyboardHook.Dispose();
             Application.Exit();
         }
 
@@ -139,7 +172,6 @@ namespace FARTS_Machine
             {
                 this._baseHook.ResetActiveOption();
             }
-            
         }
 
         private void checkBoxNoDamage_CheckedChanged(object sender, EventArgs e)

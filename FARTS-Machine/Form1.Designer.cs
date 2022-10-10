@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button_Attach = new System.Windows.Forms.Button();
-            this.textBox_Status = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_Randomizer = new System.Windows.Forms.Button();
             this.buttonStopRandomizer = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.checkBoxInfiniteAmmo = new System.Windows.Forms.CheckBox();
             this.labelHelpers = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.textBox_Status = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button_Attach
@@ -57,13 +57,6 @@
             this.button_Attach.Text = "Attach to Game";
             this.button_Attach.UseVisualStyleBackColor = true;
             this.button_Attach.Click += new System.EventHandler(this.button_Attach_Click);
-            // 
-            // textBox_Status
-            // 
-            this.textBox_Status.Location = new System.Drawing.Point(289, 12);
-            this.textBox_Status.Name = "textBox_Status";
-            this.textBox_Status.Size = new System.Drawing.Size(387, 20);
-            this.textBox_Status.TabIndex = 1;
             // 
             // label1
             // 
@@ -83,7 +76,7 @@
             this.button_Randomizer.Name = "button_Randomizer";
             this.button_Randomizer.Size = new System.Drawing.Size(143, 34);
             this.button_Randomizer.TabIndex = 4;
-            this.button_Randomizer.Text = "Start Randomizer";
+            this.button_Randomizer.Text = "Start Randomizer (0)";
             this.button_Randomizer.UseVisualStyleBackColor = true;
             this.button_Randomizer.Click += new System.EventHandler(this.button_Randomizer_Click);
             // 
@@ -94,7 +87,7 @@
             this.buttonStopRandomizer.Name = "buttonStopRandomizer";
             this.buttonStopRandomizer.Size = new System.Drawing.Size(143, 34);
             this.buttonStopRandomizer.TabIndex = 5;
-            this.buttonStopRandomizer.Text = "Stop Randomizer";
+            this.buttonStopRandomizer.Text = "Stop Randomizer (0)";
             this.buttonStopRandomizer.UseVisualStyleBackColor = true;
             this.buttonStopRandomizer.Click += new System.EventHandler(this.buttonStopRandomizer_Click);
             // 
@@ -203,6 +196,13 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // textBox_Status
+            // 
+            this.textBox_Status.Location = new System.Drawing.Point(289, 12);
+            this.textBox_Status.Name = "textBox_Status";
+            this.textBox_Status.Size = new System.Drawing.Size(387, 20);
+            this.textBox_Status.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,7 +240,6 @@
         #endregion
 
         private System.Windows.Forms.Button button_Attach;
-        private System.Windows.Forms.TextBox textBox_Status;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_Randomizer;
         private System.Windows.Forms.Button buttonStopRandomizer;
@@ -255,6 +254,7 @@
         private System.Windows.Forms.CheckBox checkBoxInfiniteAmmo;
         private System.Windows.Forms.Label labelHelpers;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.TextBox textBox_Status;
     }
 }
 
