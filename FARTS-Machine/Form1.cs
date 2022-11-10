@@ -31,6 +31,10 @@ namespace FARTS_Machine
 
         private void GlobalHookKeyPress(object sender, KeyPressEventArgs e)
         {
+            if (this.checkBoxInfiniteAmmo.Checked || this.checkBoxNoDamage.Checked || this.checkBoxSuperJump.Checked)
+            {
+                return;
+            }
             if (e.KeyChar == '0')
             {
                 if (this._randomizerRunning)
@@ -172,10 +176,16 @@ namespace FARTS_Machine
         {
             if (this.checkBoxSuperJump.Checked)
             {
+                this.button_Randomizer.Enabled = false;
+                this.checkBoxNoDamage.Enabled = false;
+                this.checkBoxInfiniteAmmo.Enabled = false;
                 this._baseHook.SetManualOption(new FARTSOptionBase { Name = "Super Jump", OptionId = (int)InternalOptionIds.SuperJump, DurationInSeconds = 40 });
             }
             else
             {
+                this.button_Randomizer.Enabled = true;
+                this.checkBoxNoDamage.Enabled = true;
+                this.checkBoxInfiniteAmmo.Enabled = true;
                 this._baseHook.ResetActiveOption();
             }
         }
@@ -184,10 +194,16 @@ namespace FARTS_Machine
         {
             if (this.checkBoxNoDamage.Checked)
             {
+                this.checkBoxSuperJump.Enabled = false;
+                this.checkBoxInfiniteAmmo.Enabled = false;
+                this.button_Randomizer.Enabled = false;
                 this._baseHook.SetManualOption(new FARTSOptionBase { Name = "Invincible Stranger", OptionId = (int)InternalOptionIds.Invincible, DurationInSeconds = 40 });
             }
             else
             {
+                this.button_Randomizer.Enabled = true;
+                this.checkBoxSuperJump.Enabled = true;
+                this.checkBoxInfiniteAmmo.Enabled = true;
                 this._baseHook.ResetActiveOption();
             }
         }
@@ -196,10 +212,16 @@ namespace FARTS_Machine
         {
             if (this.checkBoxInfiniteAmmo.Checked)
             {
+                this.checkBoxSuperJump.Enabled = false;
+                this.checkBoxNoDamage.Enabled = false;
+                this.button_Randomizer.Enabled = false;
                 this._baseHook.SetManualOption(new FARTSOptionBase { Name = "Infinite Ammo", OptionId = (int)InternalOptionIds.InfiniteAmmo, DurationInSeconds = 20 });
             }
             else
             {
+                this.button_Randomizer.Enabled = true;
+                this.checkBoxSuperJump.Enabled = true;
+                this.checkBoxNoDamage.Enabled = true;
                 this._baseHook.ResetActiveOption();
             }
         }
