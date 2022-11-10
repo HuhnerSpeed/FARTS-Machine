@@ -158,7 +158,10 @@ namespace FARTS_Machine
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this._baseHook.ResetActiveOption();
-            this._keyboardHook.Dispose();
+            if (this._keyboardHook != null)
+            {
+                this._keyboardHook.Dispose();
+            }
             Application.Exit();
         }
 
