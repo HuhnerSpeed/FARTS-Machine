@@ -12,6 +12,7 @@ For a detailed video tutorial on how to use the F.A.R.T.S.-Machine look here:
 
 **INSERT VIDEO**
 
+The basic steps are as follows:
 1. Download the Release.zip file and extract it to a location of your choice
 2. Open the 'FARTS-Machine.exe'
 3. Open Stranger's Wrath HD
