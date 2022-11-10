@@ -5,7 +5,7 @@
 The machine was explicitly built to give experienced speedrunners a new experience and extend the fun of the game and the speedrun. There are also three options built in that can be manually activated to find new strategies and ways to run.
 
 ## Compatibility
-The F.A.R.T.S.-Machine was developed on Windows 10 and is designed for the Steam version of OSW. Other systems and combinations may experience problems running the tool.
+The F.A.R.T.S.-Machine was developed on Windows 10 and is designed for the Steam version of Oddworld: Stranger's Wrath HD. Other systems and combinations may experience problems running the tool.
 
 ## How to use
 For a detailed video tutorial on how to use the F.A.R.T.S.-Machine look here:
