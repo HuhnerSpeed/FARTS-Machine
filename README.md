@@ -1,5 +1,5 @@
 
-# F.A.R.T.S.-Machine
+[![F.A.R.T.S.-Machine Tutorial](http://farts-machine.s3-website.eu-central-1.amazonaws.com/static/media/FARTS.c87c9dfc7b5d63eeef77.png)]
 
 **F**loyd's **A**ugmented **R**eal **T**ime **S**peedrun Machine (F.A.R.T.S.-Machine) is a tool to make Oddworld: Stranger's Wrath HD speedruns a little more fun. The built-in "physics randomizer" keeps changing the run in random and funny ways.
 The machine was explicitly built to give experienced speedrunners a new experience and extend the fun of the game and the speedrun. There are also three options built in that can be manually activated to find new strategies and ways to run.
@@ -10,7 +10,7 @@ The F.A.R.T.S.-Machine was developed on Windows 10 and is designed for the Steam
 ## How to use
 For a detailed video tutorial on how to use the F.A.R.T.S.-Machine look here:
 
-[![F.A.R.T.S.-Machine Tutorial](http://farts-machine.s3-website.eu-central-1.amazonaws.com/static/media/FARTS.c87c9dfc7b5d63eeef77.png)](https://www.youtube.com/watch?v=XRKB639nTPE&ab_channel=HuhnerSpeed)
+[![F.A.R.T.S.-Machine Tutorial](https://img.youtube.com/vi/XRKB639nTPE/0.jpg)](https://www.youtube.com/watch?v=XRKB639nTPE&ab_channel=HuhnerSpeed)
 
 The basic steps are as follows:
 1. Download the Release.zip file and extract it to a location of your choice
