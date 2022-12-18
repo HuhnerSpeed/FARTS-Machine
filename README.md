@@ -8,9 +8,11 @@ The machine was explicitly built to give experienced speedrunners a new experien
 The F.A.R.T.S.-Machine was developed on Windows 10 and is designed for the Steam version of Oddworld: Stranger's Wrath HD. Other systems and combinations may experience problems running the tool.
 
 ## How to use
-For a detailed video tutorial on how to use the F.A.R.T.S.-Machine look here:
+For a detailed video tutorial on how to use the F.A.R.T.S.-Machine see the YT video here:
 
 [![F.A.R.T.S.-Machine Tutorial](https://img.youtube.com/vi/XRKB639nTPE/0.jpg)](https://www.youtube.com/watch?v=XRKB639nTPE&ab_channel=HuhnerSpeed)
+
+=> https://www.youtube.com/watch?v=XRKB639nTPE&ab_channel=HuhnerSpeed
 
 The basic steps are as follows:
 1. Download the Release.zip file and extract it to a location of your choice
