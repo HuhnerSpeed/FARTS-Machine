@@ -1,5 +1,5 @@
 
-![F.A.R.T.S.-Machine](http://farts-machine.s3-website.eu-central-1.amazonaws.com/static/media/FARTS.c87c9dfc7b5d63eeef77.png)
+![F.A.R.T.S.-Machine](FARTS.png)
 
 **F**loyd's **A**ugmented **R**eal **T**ime **S**peedrun Machine (F.A.R.T.S.-Machine) is a tool to make Oddworld: Stranger's Wrath HD speedruns a little more fun. The built-in "physics randomizer" keeps changing the run in random and funny ways.
 The machine was explicitly built to give experienced speedrunners a new experience and extend the fun of the game and the speedrun. There are also three options built in that can be manually activated to find new strategies and ways to run.
