@@ -3,7 +3,6 @@ using FARTS_Machine.Hooks;
 using Gma.System.MouseKeyHook;
 using System;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Security.Principal;
 using System.Windows.Forms;
 
