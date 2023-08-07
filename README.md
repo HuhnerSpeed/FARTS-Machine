@@ -57,3 +57,4 @@ The F.A.R.T.S.-Machine randomizer can activate the following effects:
 - Effects that affect health do not work as expected at every point in the game
 - If an effect is still active after the randomizer has ended or the F.A.R.T.S.-Machine has closed, the game should be restarted
 - Effects may not work in the tutorial section of the game
+- Since this program is actively changing your memory, you might need to whitelist it in your anti virus software.
